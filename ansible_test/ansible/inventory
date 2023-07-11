@@ -1,0 +1,6 @@
+[nodes:children]
+workers
+
+[workers]
+node01.netology.yc ansible_host=62.84.126.148 ansible_user=admin ansible_pass=admin
+node02.netology.yc ansible_host=51.250.11.226 ansible_user=admin ansible_pass=admin

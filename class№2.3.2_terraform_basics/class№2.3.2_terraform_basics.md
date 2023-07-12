@@ -67,27 +67,24 @@ core_fraction указывает базовую производительнос
 Ответ:
 
 ```terraform
-locals {
-    web = "${var.vm_web}"
-}
-
-locals {
-    db = "${var.vm_db}"
+ locals {
+  project = "netology-develop-platform"
+  env_web = "web"
+  env_db  = "db"
 }
 ```
 
 * Замените переменные с именами ВМ из файла variables.tf на созданные вами local переменные.
 
 ```terraform
-
-resource "yandex_compute_instance" "platform-db" {
-  name        = local.db
-  platform_id = var.vm_db_maintenance_class
+resource "yandex_compute_instance" "platform" {
+  name        = "${local.project}-${local.env_web}"
+  platform_id = "standard-v1"
 ```
 
 ```terraform
-resource "yandex_compute_instance" "platform" {
-  name        = local.web
+resource "yandex_compute_instance" "platform_db" {
+  name        = "${local.project}-${local.env_db}"
   platform_id = "standard-v1"
 ```
 

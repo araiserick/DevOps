@@ -3,7 +3,7 @@ data "yandex_compute_image" "ubuntu_db" {
 }
 
 resource "yandex_compute_instance" "platform_db" {
-  name        = local.db
+  name        = "${local.project}-${local.env_db}"
   platform_id = "standard-v1"
   resources {
     cores         = var.vm_db_resources.cores

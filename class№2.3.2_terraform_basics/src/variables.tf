@@ -1,11 +1,3 @@
-
-###name_vm
-variable "vm_db" {
-  type        = string
-  default     = "netology-develop-platform-vm-db"
-  description = "VM2"
-}
-
 ###cloud_image
 variable "vm_db_ubuntu" {
   type        = string
@@ -13,11 +5,6 @@ variable "vm_db_ubuntu" {
   description = "ubuntu_name"
 }
 
-variable "vm_web" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "VM1"
-}
 
 ###cloud_image
 variable "ubuntu" {

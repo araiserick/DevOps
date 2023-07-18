@@ -47,3 +47,4 @@
 ![](./images/jira_3.jpg)
 ![](./images/jira_4.jpg)
 ![](./images/jira_5.jpg)
+![](./images/jira_6.jpg)

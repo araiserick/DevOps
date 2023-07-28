@@ -1,5 +1,5 @@
 
-  variable"vm_resources_list" {
+  variable "vm_resources_list" {
     type          = list(object({
         vm_name       = string
         cpu           = number

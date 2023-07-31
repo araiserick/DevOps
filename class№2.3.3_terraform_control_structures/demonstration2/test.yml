@@ -1,5 +1,4 @@
 ---
-
 - name: test
   gather_facts: false
   hosts: all
@@ -7,10 +6,8 @@
     ansible_user: ubuntu
   become: yes
   tasks:
-  
   - name: Install Nginx Web Server on Debian Family
     apt:
       name: nginx
       state: latest   
       update_cache: yes 
-    

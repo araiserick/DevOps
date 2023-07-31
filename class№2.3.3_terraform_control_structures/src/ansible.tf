@@ -8,3 +8,4 @@ resource "local_file" "hosts_cfg" {
   )
  filename = "${abspath(path.module)}/hosts.cfg"
 }
+ 

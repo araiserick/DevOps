@@ -35,10 +35,9 @@ variable "vpc_name" {
 
 variable "vms_ssh_root_key" {
   type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFeQL4DRNQ4G0DUEpjVI9l7/y9J5HI3sICVU9bgqr57q erick@erick-nitro"
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIClOxBFdp//5DhhnPZbkAlBeAQPDsw32/4toW/Kde2IE erick@erick-nitro"
   description = "ssh-keygen -t ed25519"
 }
-
 
 ###example vm_web var
 variable "vm_web_name" {

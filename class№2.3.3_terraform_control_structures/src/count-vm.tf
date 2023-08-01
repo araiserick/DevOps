@@ -31,15 +31,3 @@ resource "yandex_compute_instance" "platform" {
 
 }
 
-/*resource "null_resource" "ansible_provisioning" {  
-  provisioner "local-exec" {  
-    command = "ansible-playbook -i hosts.cfg ../demonstration2/test.yml"  
-    working_dir = path.module  
-    interpreter = ["bash", "-c"]  
-  }  
-  triggers = {  
-     instance_ids = [for instance in yandex_compute_instance.platform : 
-     instance.id]
-  }  
-} 
-*/

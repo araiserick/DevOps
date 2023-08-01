@@ -9,3 +9,12 @@ resource "local_file" "hosts_cfg" {
  filename = "${abspath(path.module)}/hosts.cfg"
 }
  
+resource "null_resource" "ansible_provisioning" {  
+  depends_on = [resource.yandex_compute_instance.storage]
+  provisioner "local-exec" {  
+    command = "ansible-playbook -i hosts.cfg ../demonstration2/test.yml"   
+    
+    working_dir = path.module  
+    interpreter = ["bash", "-c"]  
+  }  
+} 

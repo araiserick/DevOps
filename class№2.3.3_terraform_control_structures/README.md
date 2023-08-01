@@ -117,3 +117,44 @@
 Для зачета предоставьте код вместе с основной частью задания.
 
 
+Ответ:
+
+Меняем содержимое файла hosts.tftpl
+
+```
+[webservers]
+
+%{~ for i in webservers ~}
+${i["name"]} ansible_host=${i["network_interface"][0]["ip_address"]}
+
+%{~ endfor ~}
+
+[databases]
+
+%{~ for i in databases ~}
+${i["name"]} ansible_host=${i["network_interface"][0]["ip_address"]}
+
+%{~ endfor ~}
+
+[storage]
+
+%{~ for i in storage ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["ip_address"]}
+
+%{~ endfor ~}
+
+```
+
+и добавляем 
+
+```terraform 
+resource "null_resource" "ansible_provisioning" {  
+  depends_on = [resource.yandex_compute_instance.storage]
+  provisioner "local-exec" {  
+    command = "ansible-playbook -i hosts.cfg ../demonstration2/test.yml"   
+    
+    working_dir = path.module  
+    interpreter = ["bash", "-c"]  
+  }  
+} 
+```

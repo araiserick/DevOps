@@ -5,11 +5,9 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
-      -${ssh_public_key}
+      - ${ssh_public_key}
 package_update: true
 package_upgrade: false
 packages:
  - vim
- - gnuchess
- - nginx-core
- - nano
+ - nginx

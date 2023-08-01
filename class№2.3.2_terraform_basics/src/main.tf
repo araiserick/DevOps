@@ -28,7 +28,7 @@ data "yandex_compute_image" "ubuntu" {
 }
 
 resource "yandex_compute_instance" "platform" {
-  name        = "${local.project}-${local.env_web}"
+  name        = local.vm_web_name
   platform_id = "standard-v1"
   resources {
     cores         = var.vm_web_resources.cores

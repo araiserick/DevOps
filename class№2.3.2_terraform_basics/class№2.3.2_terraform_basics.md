@@ -71,6 +71,8 @@ core_fraction указывает базовую производительнос
   project = "netology-develop-platform"
   env_web = "web"
   env_db  = "db"
+  vm_web_name = "${local.project}-${local.env_web}"
+  vm_db_name  = "${local.project}-${local.env_db}"
 }
 ```
 
@@ -78,13 +80,13 @@ core_fraction указывает базовую производительнос
 
 ```terraform
 resource "yandex_compute_instance" "platform" {
-  name        = "${local.project}-${local.env_web}"
+  name        = local.vm_web_name
   platform_id = "standard-v1"
 ```
 
 ```terraform
 resource "yandex_compute_instance" "platform_db" {
-  name        = "${local.project}-${local.env_db}"
+  name        = local.vm_db_name
   platform_id = "standard-v1"
 ```
 

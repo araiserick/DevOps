@@ -71,6 +71,6 @@ variable "vms_ssh_root_key" {
   type        = map(any)
   default     = {
     serial-port-enable = 1
-    ssh-keys           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFeQL4DRNQ4G0DUEpjVI9l7/y9J5HI3sICVU9bgqr57q erick@erick-nitro"
+    ssh-keys           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjXq8fpRokDIo5V5Lnkg92bVob/b4knQEwvMyAdZ0OS erick@erick-nitro"
   }
 }

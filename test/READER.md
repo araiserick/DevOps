@@ -1,10 +1,11 @@
-### Тестовое задание для кандидата на замещение должности СПЕЦИАЛИСТ, ВЕДУЩИЙ СПЕЦИАЛИСТ, РУКОВОДИТЕЛЬ ГРУППЫ
+# Тестовое задание для кандидата на замещение должности СПЕЦИАЛИСТ, ВЕДУЩИЙ СПЕЦИАЛИСТ, РУКОВОДИТЕЛЬ ГРУППЫ
 
 
 Дано - сервер Ubuntu 18.0.4
 Логин user пароль 123456789
 
-# ip addr
+### ip addr
+
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 
 2: ens18: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
@@ -103,16 +104,64 @@ ip addr show bond0
 
 - [playbook](./pass.yml) 
 
+Перед использованием bash-скрипта отправим его на сервер по средством 
+ansible командой 
+```bash
+ansible -i hosts -m file -a "path=/*/pass.sh state=~/" -b
+```
+
 - [bash-скрипт](./pass.sh)
+
+запуск скрипта командой
+
+```bash
+sudo ./pass.sh user test123
+```
+,где 
+
+"user"-имя пользователя, которому мы хотим поменять пароль
+
+"test123" -новый пароль пользователя
 
 2. Создание пользователя с любым именем и паролем
 
 - [playbook](./user.yml) 
 
+Перед использованием bash-скрипта отправим его на сервер по средством 
+ansible командой 
+```bash
+ansible -i hosts -m file -a "path=/*/user.sh state=~/" -b
+```
+
 - [bash-скрипт](./user.sh)
+
+запуск скрипта командой
+
+```bash
+sudo ./user.sh test_user test123
+```
+,где 
+
+"test_user"-имя нового пользователя
+
+"test123" -пароль пользователя
 
 3. Смена стандартного порта ssh а любой
 
 - [playbook](./ssh.yml) 
 
+Перед использованием bash-скрипта отправим его на сервер по средством 
+ansible командой 
+```bash
+ansible -i hosts -m file -a "path=/*/ssh.sh state=~/" -b
+```
 - [bash-скрипт](./ssh.sh)
+
+запуск скрипта командой
+
+```bash
+sudo ./ssh.sh 2222
+```
+,где 
+
+"2222"-номер порта, которому мы ходим присвоить соединение по протоколу ssh

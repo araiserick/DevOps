@@ -102,7 +102,7 @@ ip addr show bond0
         
 1. Смена  пароля на вышеуказанном пользователе 
 
-- [playbook](./pass.yml) 
+- [playbook](./playbooks/pass.yml) 
 
 Перед использованием bash-скрипта отправим его на сервер по средством 
 ansible командой 
@@ -110,7 +110,7 @@ ansible командой
 ansible -i hosts -m file -a "path=/*/pass.sh state=~/" -b
 ```
 
-- [bash-скрипт](./pass.sh)
+- [bash-скрипт](./bash-script/pass.sh)
 
 запуск скрипта командой
 
@@ -125,7 +125,7 @@ sudo ./pass.sh user test123
 
 2. Создание пользователя с любым именем и паролем
 
-- [playbook](./user.yml) 
+- [playbook](./playbooks/user.yml) 
 
 Перед использованием bash-скрипта отправим его на сервер по средством 
 ansible командой 
@@ -133,7 +133,7 @@ ansible командой
 ansible -i hosts -m file -a "path=/*/user.sh state=~/" -b
 ```
 
-- [bash-скрипт](./user.sh)
+- [bash-скрипт](./bash-script/user.sh)
 
 запуск скрипта командой
 
@@ -148,14 +148,14 @@ sudo ./user.sh test_user test123
 
 3. Смена стандартного порта ssh а любой
 
-- [playbook](./ssh.yml) 
+- [playbook](./playbooks/ssh.yml) 
 
 Перед использованием bash-скрипта отправим его на сервер по средством 
 ansible командой 
 ```bash
 ansible -i hosts -m file -a "path=/*/ssh.sh state=~/" -b
 ```
-- [bash-скрипт](./ssh.sh)
+- [bash-скрипт](./bash-script/ssh.sh)
 
 запуск скрипта командой
 

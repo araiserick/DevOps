@@ -1,0 +1,28 @@
+---  
+- name: Добавление пользователя  
+  hosts: localhost #ip удаленной машины  
+  become: true  
+  
+  vars:  
+    username: user02
+    password: 12345678
+    shell: /bin/bash  
+    home: /home/user 
+  
+  tasks:
+  - name: Преобразование пароля в строку, если не является  
+    set_fact:  
+      password_string: "{{ password | string }}"  
+  - name: Создание пользователя  
+    user:  
+      name: "{{ username }}"  
+      password: "{{ password_string | password_hash('sha512') }}"  
+      shell: "{{ shell }}"  
+      home: "{{ home }}"  
+      state: present   
+  - name: Добавление пользователя в группу sudo  
+    user:  
+      name: "{{ username }}"  
+      groups: sudo  
+      append: yes  
+      state: present 

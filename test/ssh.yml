@@ -1,0 +1,20 @@
+---  
+- name: Изменение порта SSH  
+  hosts: localhost  
+  become: true  
+  vars:  
+    NEW_PORT: 22
+  tasks:
+    - name: Установка нового порта SSH  
+      lineinfile:  
+        path: /etc/ssh/ssh_config  
+        regex: '^#?Port\s+'  
+        line: 'Port {{ NEW_PORT }}'  
+        backup: yes  
+      notify: Restart SSH  
+  
+  handlers:  
+    - name: Restart SSH  
+      service:  
+        name: ssh  
+        state: restarted

@@ -1,0 +1,22 @@
+---  
+- name: Смена пароля пользователя  
+  hosts: localhost  # Замени "your_hosts" на группу или хосты, где нужно изменить пароль пользователя  
+  become: yes  
+  become_user: root  
+  
+  vars:  
+    new_password: 87654321  # Замени "your_new_password" на новый пароль пользователя  
+  
+  tasks:  
+    - name: Генерация хеша нового пароля  
+      shell: echo "{{ new_password }}" | openssl passwd -1 -stdin  
+      register: hashed_password  
+      changed_when: false  
+  
+    - name: Смена пароля  
+      user:  
+        name: user  
+        password: "{{ hashed_password.stdout }}"  
+        update_password: always  
+      register: result  
+      changed_when: result.changed

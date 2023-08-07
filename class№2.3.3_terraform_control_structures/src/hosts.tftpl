@@ -1,20 +1,14 @@
-[webservers]
-
-%{~ for i in webservers ~}
-${i["name"]} ansible_host=${i["network_interface"][0]["ip_address"]}
-
-%{~ endfor ~}
-
-[databases]
-
-%{~ for i in databases ~}
-${i["name"]} ansible_host=${i["network_interface"][0]["ip_address"]}
-
-%{~ endfor ~}
-
-[storage]
-
-%{~ for i in storage ~}
-${i["name"]}   ansible_host=${i["network_interface"][0]["ip_address"]}
-
-%{~ endfor ~}
+[webservers]  
+{% for server in webservers %}  
+{{ server.name }} ansible_host={% if server.network_interface[0].external_ip_address %}{{ server.network_interface[0].external_ip_address }}{% else %}{{ server.network_interface[0].internal_ip_address }}{% endif %}  
+{% endfor %}  
+  
+[databases]  
+{% for server in databases %}  
+{{ server.name }} ansible_host={% if server.network_interface[0].external_ip_address %}{{ server.network_interface[0].external_ip_address }}{% else %}{{ server.network_interface[0].internal_ip_address }}{% endif %}  
+{% endfor %}  
+  
+[storage]  
+{% for server in storage %}  
+{{ server.name }} ansible_host={% if server.network_interface[0].external_ip_address %}{{ server.network_interface[0].external_ip_address }}{% else %}{{ server.network_interface[0].internal_ip_address }}{% endif %}  
+{% endfor %}  

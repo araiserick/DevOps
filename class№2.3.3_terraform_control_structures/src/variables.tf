@@ -70,6 +70,6 @@ variable "vms_ssh_root_key" {
   type        = map(any)
   default     = {
     serial-port-enable = 1
-    ssh-keys           = "~/.ssh/id_ed25519.pub"
+    ssh-keys           = "~/.ssh/id_rsa.pub"
   }
 }

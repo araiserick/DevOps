@@ -2,7 +2,13 @@
 
 ## Первый Play
 
-ТЕГ lighthouse
+### ТЕГ
+
+| Тег | Описание | 
+| :-----:|:-----:|
+|`lighthouse`| Указывается на исполнение всех tasks для установки lighthouse |
+
+
 
 ```yaml
 - name: Nginx  #Установка Nginx на хост lighthouse для того, чтобы можно было пользоваться web-интерфейсом lighthouse
@@ -51,11 +57,18 @@
 
 ## Второй Play
 
-Так же используется ТЕГ lighthouse
+### ТЕГ
 
-Основные параметры, используемые в play.
+| Тег | Описание | 
+| :-----:|:-----:|
+|`lighthouse`| Указывается на исполнение всех tasks для установки lighthouse |
 
-[vars.yml](./group_vars/lighthouse/vars.yaml)
+### Параметры
+
+| Параметр | Описание | Локация |
+| :-----:|:-----:|:------:|
+|`lighthouse_url`| Адрес репозитория для скачивания Lighthouse | ./group_vars/lighthouse/vars.yaml |
+| `lighthouse_dir` | Нахождение локальной папки, куда будет помещен lighthouse | ./group_vars/lighthouse/vars.yaml |
 
 ```yaml
 - name: Install lighthouse # установка Lighthouse - инструмент производительности веб-страниц и аудита
@@ -98,11 +111,18 @@
 
 ## Третий Play
 
-Используется ТЕГ click
+### ТЕГ
 
-Основные параметры, используемые в play.
+| Тег | Описание | 
+| :-----:|:-----:|
+|`click`| Указывается на исполнение всех tasks для установки clickhouse |
 
-[vars.yml](./group_vars/clickhouse/vars.yml)
+### Параметры
+
+| Параметр | Описание | Локация |
+| :-----:|:-----:|:------:|
+|`clickhouse_version`| параметр версии clickhouse | ./group_vars/clickhouse/vars.yml |
+| `clickhouse_packages` | Параметры пакетов для установки clickhouse| ./group_vars/clickhouse/vars.yml |
 
 ```yaml
 - name: Install Clickhouse #установка clickhouse - СУБД для аналитических работ
@@ -160,11 +180,19 @@
 
 ## Четвертый Play
 
-Используется ТЕГ vector
+### ТЕГ
 
-Основные параметры, используемые в play.
+| Тег | Описание | 
+| :-----:|:-----:|
+|`vector`| Указывается на исполнение всех tasks для установки vector |
 
-[vars.yml](./group_vars/vector/vars.yml)
+### Параметры
+
+| Параметр | Описание | Локация |
+| :-----:|:-----:|:------:|
+|`vector_url`| url пакетов vector | ./group_vars/vector/vars.yml |
+| `ansible_user_id` | Параметр создания user взятые из шаблона jinja2 | ./templates/vector.service.j2 |
+| `ansible_user_gid` | Параметр создания group взятые из шаблона jinja2 | ./templates/vector.service.j2 |
 
 ```yaml
 - name: Vector | Install rpm # установка vector- инструмент для сбора, обработки и анализа данных в реальном времени.

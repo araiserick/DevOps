@@ -1,0 +1,14 @@
+---
+- name: Start-nginx
+  become: true
+  ansible.builtin.service:
+    name: nginx
+    state: started
+  tags:
+    -lighthouse
+- name: Restart-nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+  tags:
+    -lighthouse

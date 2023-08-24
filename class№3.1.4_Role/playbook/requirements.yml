@@ -1,0 +1,12 @@
+---
+  - src: git@github.com:araiserick/clickhouse-role.git
+    scm: git
+    name: clickhouse
+
+  - src: git@github.com:araiserick/vector-role.git
+    scm: git
+    name: vector
+
+  - src: git@github.com:araiserick/lighthouse-role.git
+    scm: git
+    name: lighthouse

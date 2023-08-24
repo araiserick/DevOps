@@ -23,5 +23,12 @@
 10. Выложите playbook в репозиторий.
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
----
+# Role:
 
+- [Lighthouse](https://github.com/araiserick/lighthouse-role)
+
+- [Vector](https://github.com/araiserick/vector-role)
+
+# Playbook
+
+- [Playbook](https://github.com/araiserick/DevOps/tree/main/class%E2%84%963.1.4_Role/playbook)

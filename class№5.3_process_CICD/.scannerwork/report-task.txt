@@ -1,0 +1,6 @@
+projectKey=netology
+serverUrl=http://158.160.122.20:9000
+serverVersion=9.1.0.47736
+dashboardUrl=http://158.160.122.20:9000/dashboard?id=netology
+ceTaskId=AYqzKomzz3WZ90uY11iI
+ceTaskUrl=http://158.160.122.20:9000/api/ce/task?id=AYqzKomzz3WZ90uY11iI

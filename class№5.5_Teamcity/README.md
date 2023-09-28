@@ -39,10 +39,11 @@
 11. Дополните тест для нового метода на поиск слова `hunter` в новой реплике.
 
 ```java
-		@Test
-	public void welcomerServeToNerzhul(){
-		assertThat(welcomer.sayNerzhul(), containsString("hunter"));
-	}```
+    @Test
+public void welcomerServeToNerzhul(){
+assertThat(welcomer.sayNerzhul(), containsString("hunter"));
+}
+```
 
 12. Сделайте push всех изменений в новую ветку репозитория.
 
